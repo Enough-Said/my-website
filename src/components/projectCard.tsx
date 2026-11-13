@@ -1,5 +1,6 @@
 import { GoLinkExternal } from "react-icons/go";
 import ReactMarkdown from 'react-markdown'
+import remarkBreaks from "remark-breaks";
 
 interface CardProp {
   title: string
@@ -22,7 +23,7 @@ export function ProjectCard({
         </h3>
 
         <div className="text-sm leading-relaxed mb-4">
-          <ReactMarkdown>{description}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkBreaks]}>{description}</ReactMarkdown>
         </div>
       </div>
 

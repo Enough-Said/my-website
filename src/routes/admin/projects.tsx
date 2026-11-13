@@ -3,6 +3,8 @@ import { addProject, getProjects, deleteProject } from '@/utils/projects'
 import { useForm } from '@tanstack/react-form'
 import { useState } from 'react'
 import { FaTrash } from "react-icons/fa";
+import ReactMarkdown from 'react-markdown'
+import remarkBreaks from "remark-breaks";
 
 export const Route = createFileRoute('/admin/projects')({
   loader: async () => {
@@ -175,16 +177,16 @@ function RouteComponent() {
       <div className="mt-5">
         <h2 className="text-xl font-semibold mb-4">Existing Projects</h2>
         
-        <div className="bg-surface rounded-xl border border-accent overflow-hidden shadow-sm">
+        <div className="bg-surface rounded-xl border border-accent overflow-hidden shadow-md">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="border-b border-secondary/20 bg-secondary/5 text-xs uppercase tracking-wider text-primary">
+              <tr className="border-b border-secondary/40 bg-secondary/5 text-xs uppercase tracking-wider text-primary">
                 <th className="p-4 font-semibold">Name</th>
                 <th className="p-4 font-semibold">Description</th>
                 <th className="p-4 font-semibold text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-secondary/10 text-sm">
+            <tbody className="divide-y divide-secondary/40 text-sm">
               {projects.length === 0 ? (
                 <tr>
                   <td colSpan={3} className="p-6 text-center text-secondary">
@@ -197,8 +199,8 @@ function RouteComponent() {
                     <td className="p-4 font-medium text-text-main align-top w-1/4">
                       {project.title}
                     </td>
-                    <td className="p-4 text-secondary align-top font-mono text-xs line-clamp-2 w-2/3">
-                      {project.description}
+                    <td className="p-4 text-secondary align-top font-mono text-xs w-2/3">
+                      <ReactMarkdown remarkPlugins={[remarkBreaks]}>{project.description}</ReactMarkdown>
                     </td>
                     <td className="p-4 text-right align-top w-1/12">
                       <button

@@ -17,7 +17,9 @@ function ProjectsPage() {
   return (
     <div className="p-8">
       <h1 className="text-4xl font-bold text-center mb-6">Projects</h1>
-  
+
+      {projects.length === 0 ? (<p>No projects found...</p>) : (<></>)}
+      
       {/* List of projects, in the form of cards*/}
       <div className="grid grid-cols-1 gap-3">
         {projects.map((project) => (
@@ -30,6 +32,7 @@ function ProjectsPage() {
           />
         ))}
       </div>
+
     </div>
   )
 }
