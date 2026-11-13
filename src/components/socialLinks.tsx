@@ -1,4 +1,4 @@
-import { SiGmail, SiGithub } from "react-icons/si";
+import { SiGithub } from "react-icons/si";
 import { GrLinkedin } from "react-icons/gr";
 
 
@@ -13,7 +13,7 @@ export function SocialLinks() {
         aria-label="GitHub Profile"
         className="hover:text-secondary transition-colors"
       >
-        <SiGithub className="w-5 h-5" />
+        <SiGithub className="w-6 h-6" />
       </a>
 
       {/* LinkedIn Link */}
@@ -24,7 +24,7 @@ export function SocialLinks() {
         aria-label="LinkedIn Profile"
         className="hover:text-secondary transition-colors"
       >
-        <GrLinkedin className="w-5 h-5" />
+        <GrLinkedin className="w-6 h-6" />
       </a>
     </div>
   )

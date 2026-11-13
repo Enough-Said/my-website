@@ -2,10 +2,10 @@
 
 @theme {
   --color-background: #E8F7EE;/*Honeydew*/
-  --color-surface: #B8C4BB;   /*Ash Grey*/
+  --color-surface: #FFFFFF;   /*White*/
   --color-primary: #330036;   /*Dark Amethyst*/
   --color-secondary: #014D4E; /*Dark Teal*/
-  --color-accent: #C9D6EA;    /*Pale Sky*/
+  --color-accent: #B8C4BB;    /*Ash Grey*/
 }
 
 * {
