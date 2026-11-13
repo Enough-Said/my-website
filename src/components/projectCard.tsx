@@ -1,4 +1,5 @@
 import { GoLinkExternal } from "react-icons/go";
+import ReactMarkdown from 'react-markdown'
 
 interface CardProp {
   title: string
@@ -19,9 +20,10 @@ export function ProjectCard({
         <h3 className="text-xl font-semibold">
           {title}
         </h3>
-        <p className="text-sm leading-relaxed mb-4">
-          {description}
-        </p>
+
+        <div className="text-sm leading-relaxed mb-4">
+          <ReactMarkdown>{description}</ReactMarkdown>
+        </div>
       </div>
 
       <a
