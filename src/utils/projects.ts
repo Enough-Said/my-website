@@ -1,7 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
 import { db } from '@/db'
 import { projectsTable } from '@/db/schema'
-import { ensureLocalHost } from '@/utils/localAuth'
 import { eq } from 'drizzle-orm'
 
 export const getProjects = createServerFn({ method: 'GET' }).handler(async () => {
@@ -18,8 +17,6 @@ export const addProject = createServerFn({ method: 'POST' })
     linkText?: string }) => data)
   // Add the data to the database after checking we are on host computer
   .handler(async ({ data }) => {
-    ensureLocalHost()
-
     await db.insert(projectsTable).values({
       title: data.title,
       description: data.description,
@@ -33,7 +30,6 @@ export const addProject = createServerFn({ method: 'POST' })
 export const deleteProject = createServerFn({ method: 'POST' })
   .validator((data: { id: number }) => data)
   .handler(async ({ data }) => {
-    ensureLocalHost()
     await db.delete(projectsTable).where(eq(projectsTable.id, data.id))
     return { success: true }
   })

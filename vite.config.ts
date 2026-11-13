@@ -8,7 +8,16 @@ import tailwindcss from '@tailwindcss/vite'
 
 const config = defineConfig({
   resolve: { tsconfigPaths: true },
-  plugins: [devtools(), tailwindcss(), tanstackStart(), viteReact()],
+  plugins: [
+    devtools(), 
+    tailwindcss(), 
+    tanstackStart({
+      router: {
+        // During production builds, ignore any route file path containing "admin"
+        routeFileIgnorePattern: process.env.NODE_ENV === 'production' ? 'admin' : undefined,
+      },
+    }), 
+    viteReact()]
 })
 
 export default config

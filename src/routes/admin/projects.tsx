@@ -1,14 +1,11 @@
 import { createFileRoute, useRouter } from '@tanstack/react-router'
 import { addProject, getProjects, deleteProject } from '@/utils/projects'
-import { ensureLocalHost } from '@/utils/localAuth'
 import { useForm } from '@tanstack/react-form'
 import { useState } from 'react'
 import { FaTrash } from "react-icons/fa";
 
 export const Route = createFileRoute('/admin/projects')({
   loader: async () => {
-    // No access from outside localhost
-    await ensureLocalHost()
     const projects = await getProjects()
     return { projects }
   },
